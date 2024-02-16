@@ -14,7 +14,7 @@ function AdminMenu(props) {
         <a href="/admin/employees" className="list-group-item">Employees</a>
         <a href="/admin/add-customer" className="list-group-item">Add customer</a>
         <a href="/admin/customers" className="list-group-item">Customers</a>
-        <a href="/admin/services" className="list-group-item">Services</a>
+        <a href="/services" className="list-group-item">Services</a>
       </div>
     </div>
   );
