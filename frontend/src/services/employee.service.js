@@ -1,4 +1,4 @@
-// Import from the env 
+// Import url from the env 
 const api_url = process.env.REACT_APP_API_URL;
 
 // A function to send post request to create a new employee 

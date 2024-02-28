@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import employeeService from '../../../../services/employee.service';
 // Import the useAuth hook 
 import { useAuth } from "../../../../Contexts/AuthContext";
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 function AddEmployeeForm(props) {
   const [employee_email, setEmail] = useState('');
@@ -121,8 +122,13 @@ function AddEmployeeForm(props) {
                   <div className="row clearfix">
                     <div className="form-group col-md-12">
                       {serverError && <div className="validation-error" role="alert">{serverError}</div>}
-                      <input type="email" name="employee_email" value={employee_email} onChange={event => setEmail(event.target.value)} placeholder="Employee email" />
-                      {emailError && <div className="validation-error" role="alert">{emailError}</div>}
+                      <input type="email" 
+                      name="employee_email" 
+                      value={employee_email} onChange={event => setEmail(event.target.value)} 
+                      placeholder="Employee email" />
+                      {emailError && <div 
+                      className="validation-error" role="alert">
+                        {emailError}</div>}
                     </div>
                     <div className="form-group col-md-12">
                       <input type="text" name="employee_first_name" value={employee_first_name} onChange={event => setFirstName(event.target.value)} placeholder="Employee first name" />

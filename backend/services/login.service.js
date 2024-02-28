@@ -7,9 +7,13 @@ const bcrypt = require('bcrypt');
 const employeeService = require("./employee.service");
 // Handle employee login 
 async function logIn(employeeData) {
+  
   try {
     let returnData = {}; // Object to be returned
+    // console.log(employeeData)
+     // console.log(employeeData.employee_email)
     const employee = await employeeService.getEmployeeByEmail(employeeData.employee_email);
+    // console.log(employee)
     if (employee.length === 0) {
       returnData = {
         status: "fail",

@@ -7,6 +7,7 @@ const jwtSecret = process.env.JWT_SECRET;
 
 // Handle employee login 
 async function logIn(req, res, next) {
+  // console.log(req.body)
   try {
     console.log(req.body);
     const employeeData = req.body;

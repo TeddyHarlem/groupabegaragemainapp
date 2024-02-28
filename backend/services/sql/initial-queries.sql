@@ -3,7 +3,8 @@ CREATE TABLE IF NOT EXISTS `customer_identifier` (
   `customer_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_email` varchar(255) NOT NULL,
   `customer_phone_number` varchar(255) NOT NULL,
-  `customer_added_date` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `added_date` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  
   `customer_hash` varchar(255) NOT NULL,
   PRIMARY KEY (customer_id),
   UNIQUE (customer_email)
@@ -14,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `customer_info` (
   `customer_id` int(11) NOT NULL, 
   `customer_first_name` varchar(255) NOT NULL,
   `customer_last_name` varchar(255) NOT NULL,
-  `active_customer_status` int(11) NOT NULL,
+  `active_customer` int(11) NOT NULL,
   PRIMARY KEY (customer_info_id),
   FOREIGN KEY (customer_id) REFERENCES customer_identifier(customer_id)
 ) ENGINE=InnoDB;

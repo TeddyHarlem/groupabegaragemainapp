@@ -26,8 +26,13 @@ app.use(sanitize.middleware);
 // Add the routes to the application as middleware 
 app.use(router);
 // Start the webserver
-app.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
+app.listen(port, (err) => {
+  if(err) {
+    console.log((err.message))
+  } else {
+    console.log(`Server running on port: ${port}`);
+  }
+  
 });
 // Export the webserver for use in the application 
 module.exports = app;

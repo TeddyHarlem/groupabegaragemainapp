@@ -260,3 +260,24 @@ input:disabled {
 .change-status {
   cursor: pointer;
 }
+
+/* Add this CSS to your stylesheet */
+.extended-search-button {
+  height: 39px;
+  width: 50px; /* Adjust the width according to your design */
+  background-color: #dee2e6;
+}
+
+
+/* Add this CSS to your stylesheet */
+.extended-placeholder-input {
+  height: 40px;
+  width: 1000px; /* Adjust the width according to your design */
+  background-color: #dddddd;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

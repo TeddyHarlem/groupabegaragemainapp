@@ -46,8 +46,7 @@ function WhyChooseUs() {
               <div className="row">
                 <div className="col-md-5">
                   <div className="image">
-                    image 192*379pxl
-                    <img src="assets/images/resource/image-4.jpg" alt="" />
+                    <img src="assets/images/custom/misc/vban1.jpg" alt="" />
                   </div>
                 </div>
                 <div className="col-md-7">

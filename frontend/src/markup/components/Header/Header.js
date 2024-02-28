@@ -45,9 +45,9 @@ function Header(props) {
                     Schedule Appointment: <strong>1800 456 7890 </strong>{" "}
                   </div>
                 )}
+                <p>||||||||||</p>
               </div>
-
-             
+              
             </div>
           </div>
         </div>
@@ -83,6 +83,12 @@ function Header(props) {
                         </li>
                         <li>
                           <a href="/contact">Contact Us</a>
+                        </li>
+                        <li>
+                          <a href="/admin">Admin</a>
+                        </li>
+                        <li>
+                          <a href="#">|</a>
                         </li>
                       </ul>
                     </div>

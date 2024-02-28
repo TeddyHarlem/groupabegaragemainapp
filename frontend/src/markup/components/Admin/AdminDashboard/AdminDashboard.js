@@ -123,7 +123,7 @@ function AdminDashboard() {
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>only admin</h5>
-                      <h2>Customers</h2>
+                      <h2>Services</h2>
                       <a href="#" className="read-more">
                         List of Customers +
                       </a>

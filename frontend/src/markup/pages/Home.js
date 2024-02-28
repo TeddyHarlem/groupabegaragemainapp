@@ -37,6 +37,7 @@ function Home() {
           </div>
         </div>
       </section>
+      
 
       <ExperienceSection />
       <ServicesSection />
@@ -64,7 +65,7 @@ function Home() {
             </div>
             <div className="col-lg-6">
               <div className="image">
-                <img src="assets/images/resource/image-3.jpg" alt="" />
+              <img src="assets/images/custom/misc/image-3.jpg" alt="" />
               </div>
             </div>
           </div>

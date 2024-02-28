@@ -59,11 +59,11 @@ function Footer(props) {
                       <h4 className="widget_title">Usefull Links</h4>
                       <div className="widget-content">
                         <ul className="list">
-                          <li><a href="index.html">Home</a></li>
-                          <li><a href="about.html">About Us</a></li>
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/about">About Us</a></li>
                           <li><a href="#">Appointment</a></li>
-                          <li><a href="testimonial.html">Testimonials</a></li>
-                          <li><a href="contact.html">Contact Us</a></li>
+                        
+                          <li><a href="/contact">Contact Us</a></li>
                         </ul>
                       </div>
                     </div>
