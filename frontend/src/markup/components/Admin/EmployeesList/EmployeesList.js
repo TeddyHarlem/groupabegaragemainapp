@@ -9,6 +9,7 @@ import { format } from "date-fns"; // To properly format the date on the table
 import employeeService from "../../../../services/employee.service";
 // Import react-icons
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Create the EmployeesList component
 const EmployeesList = () => {
@@ -101,7 +102,10 @@ const EmployeesList = () => {
                       <td>{employee.company_role_name}</td>
                       <td>
                         <div className="edit-delete-icons">
-                          <FaEdit /> edit | <FaTrash /> delete
+                          <Link to="/edit/employee">
+                            {" "}
+                            <FaEdit /> edit | <FaTrash /> delete
+                          </Link>
                         </div>
                       </td>
                     </tr>

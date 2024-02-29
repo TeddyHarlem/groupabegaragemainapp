@@ -42,6 +42,19 @@ async function searchCustomer(token, searchQuery) {
   return response;
 }
 
+//Fetch single customer data
+async function getCustomerById(id, loggedInEmployeeToken){
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': loggedInEmployeeToken
+    }
+  };
+  const response = await fetch(`${api_url}/api/customer/${id}`, requestOptions);
+  return response;
+}
+
 
 
 
@@ -51,7 +64,8 @@ async function searchCustomer(token, searchQuery) {
 const CustomerService = {
   createCustomer,
   getAllCustomers,
-  searchCustomer
+  searchCustomer,
+  getCustomerById
 };
 
 export  default CustomerService;

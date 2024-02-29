@@ -264,7 +264,7 @@ input:disabled {
 /* Add this CSS to your stylesheet */
 .extended-search-button {
   height: 39px;
-  width: 50px; /* Adjust the width according to your design */
+  width: 150px; /* Adjust the width according to your design */
   background-color: #dee2e6;
 }
 
@@ -280,4 +280,5 @@ input:disabled {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* width: 1500px; */
 }

@@ -42,7 +42,9 @@ import Contact from "./markup/pages/Contact";
 // Import the PrivateAuthRoute component
 import PrivateAuthRoute from "./markup/components/Auth/PrivateAuthRoute";
 import AdminServices from "./markup/pages/admin/AdminServices";
-
+import EditCustomerForm from "./markup/components/Admin/EditCustomerForm/EditCustomerForm";
+import EditEmployeeForm from "./markup/components/Admin/EditEmployeeForm/EditEmployeeForm";
+import AddVehicle from "./markup/pages/admin/AddVehicle";
 function App() {
   return (
     <>
@@ -54,6 +56,9 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/admin/edit-customer/:customer_id" element={<EditCustomerForm />} />
+        <Route path="/edit/employee" element={<EditEmployeeForm />} />
+        <Route path="/add/vehicle" element={<AddVehicle />} />
 
         {/* // Add the Orders Routes  */}
         <Route

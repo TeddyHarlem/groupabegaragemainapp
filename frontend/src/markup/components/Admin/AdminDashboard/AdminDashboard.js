@@ -1,5 +1,6 @@
 import React from "react";
 import AdminMenu from "../AdminMenu/AdminMenu";
+import { Link } from "react-router-dom";
 
 function AdminDashboard() {
   return (
@@ -25,7 +26,7 @@ function AdminDashboard() {
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>open for all</h5>
-                      <h2>All Orders</h2>
+                      <h2>New Orders</h2>
                       <a href="#" className="read-more">
                         list of orders +
                       </a>
@@ -37,7 +38,7 @@ function AdminDashboard() {
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>open for leads</h5>
-                      <h2>New orders</h2>
+                      <h2>All orders</h2>
                       <a href="#" className="read-more">
                         list of orders +
                       </a>
@@ -51,8 +52,8 @@ function AdminDashboard() {
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>open for admins</h5>
-                      <h2>Employees</h2>
-                      <a href="#" className="read-more">
+                     <Link to="/admin/employees" > <h2>Employees</h2> </Link>
+                      <a href="/admin/employees" className="read-more">
                         List of employees +
                       </a>
                       <div className="icon">
@@ -87,8 +88,8 @@ function AdminDashboard() {
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>only admin</h5>
-                      <h2>Customers</h2>
-                      <a href="#" className="read-more">
+                      <Link to="/admin/customers" >  <h2>Customers</h2> </Link>
+                      <a href="/admin/customers" className="read-more">
                         List of Customers +
                       </a>
                       <div className="icon">
@@ -99,8 +100,8 @@ function AdminDashboard() {
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>open for all</h5>
-                      <h2>Add Vehicle</h2>
-                      <a href="#" className="read-more">
+                     <Link to="/add/vehicle">  <h2>Add Vehicle</h2> </Link>
+                      <a href="/add/vehicle" className="read-more">
                         List of Customers +
                       </a>
                       <div className="icon">

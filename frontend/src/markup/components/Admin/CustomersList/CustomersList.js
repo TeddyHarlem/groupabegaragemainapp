@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { useAuth } from "../../../../Contexts/AuthContext";
 import customerService from "../../../../services/customer.service";
 import { FaEdit, FaTrash, FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Create the CustomersList component
 const CustomersList = () => {
@@ -16,7 +17,7 @@ const CustomersList = () => {
   // State to track the current page
   const [page, setPage] = useState(1);
   // State to track the total number of pages
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState("");
   // State to store the search query
   const [searchQuery, setSearchQuery] = useState("");
   // To get the logged in employee token
@@ -45,8 +46,13 @@ const CustomersList = () => {
         const data = await response.json();
         setCustomers(data.data);
         setTotalPages(data.totalPages);
+        // Check if the current page exceeds the new total pages
+        if (page > data.totalPages) {
+          setPage(data.totalPages);
+        }
       } catch (error) {
         console.error("Error fetching customers:", error);
+        // Setting API error flag and error message
         setApiError(true);
         setApiErrorMessage("Something went wrong");
       }
@@ -88,7 +94,7 @@ const CustomersList = () => {
                 <input
                   type="text"
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={handleSearch}
                   placeholder="Search for a customer using first name, last name, email address or phonenumber"
                   className="extended-placeholder-input"
                 />
@@ -133,7 +139,11 @@ const CustomersList = () => {
                     <td>{customer.active_customer ? "Yes" : "No"}</td>
                     <td>
                       <div className="edit-delete-icons">
-                        <FaEdit /> | <FaTrash />
+                        <Link to={`/admin/edit-customer/${customer.customer_id}`}>
+                          {" "}
+                          <FaEdit /> edit  </Link>| 
+                          <Link to="/admin/customer-profile">  <FaTrash /> delete{" "} </Link>
+                       
                       </div>
                     </td>
                   </tr>
