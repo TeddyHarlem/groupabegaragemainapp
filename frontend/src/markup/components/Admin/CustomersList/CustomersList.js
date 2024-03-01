@@ -3,7 +3,8 @@ import { Table, Button } from "react-bootstrap";
 import { format } from "date-fns";
 import { useAuth } from "../../../../Contexts/AuthContext";
 import customerService from "../../../../services/customer.service";
-import { FaEdit, FaTrash, FaSearch } from "react-icons/fa";
+import { FaEdit, FaTrash, FaSearch, FaPager } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 // Create the CustomersList component
@@ -117,7 +118,7 @@ const CustomersList = () => {
                   <th>Phone</th>
                   <th>Added Date</th>
                   <th>Active</th>
-                  <th>Edit/Delete</th>
+                  <th>Edit/Profile</th>
                 </tr>
               </thead>
               <tbody>
@@ -139,11 +140,21 @@ const CustomersList = () => {
                     <td>{customer.active_customer ? "Yes" : "No"}</td>
                     <td>
                       <div className="edit-delete-icons">
-                        <Link to={`/admin/edit-customer/${customer.customer_id}`}>
+                        <Link
+                          to={`/admin/edit-customer/${customer.customer_id}`}
+                        >
                           {" "}
-                          <FaEdit /> edit  </Link>| 
-                          <Link to="/admin/customer-profile">  <FaTrash /> delete{" "} </Link>
-                       
+                          <FaEdit /> {" "} 
+                          {/* <FaTrash /> */}
+                        </Link>
+                        |
+                        <Link
+                          to={`/admin/customer-profile/${customer.customer_id}`}
+                        >
+                          {" "}
+                          <CgProfile />
+                         Profile{" "}
+                        </Link>
                       </div>
                     </td>
                   </tr>

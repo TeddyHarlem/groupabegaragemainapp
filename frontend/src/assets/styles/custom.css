@@ -272,7 +272,7 @@ input:disabled {
 /* Add this CSS to your stylesheet */
 .extended-placeholder-input {
   height: 40px;
-  width: 1000px; /* Adjust the width according to your design */
+  width: 750px; /* Adjust the width according to your design */
   background-color: #dddddd;
 }
 

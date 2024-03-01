@@ -21,7 +21,7 @@ function EditEmployeeForm() {
     <section className="contact-section">
       <div className="auto-container">
         <div className="contact-title">
-          <h2>Edit: Employee  Information</h2>
+          <h2>Edit: Employee information</h2>
           <h4>Employee email:</h4>
         </div>
         <div className="row clearfix">

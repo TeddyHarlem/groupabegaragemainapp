@@ -38,13 +38,16 @@ import About from "./markup/pages/About";
 import Services from "./markup/pages/Services";
 // Import the Contact component
 import Contact from "./markup/pages/Contact";
-
 // Import the PrivateAuthRoute component
 import PrivateAuthRoute from "./markup/components/Auth/PrivateAuthRoute";
 import AdminServices from "./markup/pages/admin/AdminServices";
-import EditCustomerForm from "./markup/components/Admin/EditCustomerForm/EditCustomerForm";
-import EditEmployeeForm from "./markup/components/Admin/EditEmployeeForm/EditEmployeeForm";
+import EditCustomer from "./markup/pages/admin/Edit/EditCustomer/EditCustomer";
 import AddVehicle from "./markup/pages/admin/AddVehicle";
+import EditCustomerProfile from "./markup/pages/admin/Edit/EditCustomerProfile/EditCustomerProfile";
+import EditEmployee from "./markup/pages/admin/Edit/EditEmployee/EditEmployee";
+
+import EditEmployeeProfile from "./markup/pages/admin/Edit/EditEmployeeProfile/EditEmployeeProfile";
+
 function App() {
   return (
     <>
@@ -56,9 +59,31 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
-        <Route path="/admin/edit-customer/:customer_id" element={<EditCustomerForm />} />
-        <Route path="/edit/employee" element={<EditEmployeeForm />} />
+
+        {/* Add vehicle */}
         <Route path="/add/vehicle" element={<AddVehicle />} />
+
+        {/* Edit Links */}
+        <Route
+          path="/admin/edit-customer/:id"
+          element={<EditCustomer />}
+        />
+        <Route
+          path="/admin/customer-profile/:customer_id"
+          element={<EditCustomerProfile />}
+        />
+      
+
+        <Route
+          path="admin/edit-employee/:employee_id"
+          element={<EditEmployee />}
+        />
+
+           
+        <Route
+          path="/admin/employee-profile/:employee_id"
+          element={<EditEmployeeProfile />}
+        />    
 
         {/* // Add the Orders Routes  */}
         <Route

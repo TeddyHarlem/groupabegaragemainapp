@@ -8,7 +8,8 @@ import { format } from "date-fns"; // To properly format the date on the table
 // Import the getAllEmployees function
 import employeeService from "../../../../services/employee.service";
 // Import react-icons
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash, FaPager } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 // Create the EmployeesList component
@@ -102,10 +103,23 @@ const EmployeesList = () => {
                       <td>{employee.company_role_name}</td>
                       <td>
                         <div className="edit-delete-icons">
-                          <Link to="/edit/employee">
+                          <Link
+                            to={`/admin/edit-employee/${employee.employee_id}`}
+                            
+                          >
                             {" "}
-                            <FaEdit /> edit | <FaTrash /> delete
+                            <FaEdit /> edit{" "}
                           </Link>
+                          |
+                          <Link
+                            to={`/admin/employee-profile/${employee.employee_id}`}
+                          >
+                            {" "}
+                            <id-card-clip />
+                            <CgProfile /> profile{" "}
+                          </Link>
+
+                          
                         </div>
                       </td>
                     </tr>

@@ -28,7 +28,19 @@ const getAllCustomers = async (token) => {
   const response = await fetch(`${api_url}/api/customers`, requestOptions);
   return response;
 }
-
+// Write a function to edit customer
+const updateCustomer = async (formData,id, loggedInEmployeeToken) =>{
+  const requestOptions = {
+    method:"PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "x-access-token": loggedInEmployeeToken,
+    },
+    body: JSON.stringify(formData)
+  };
+  const response = await fetch(`${api_url}/api/customer/edit/${id}`, requestOptions)
+  return response
+}
 // write a function to search by first name, last name, email and ID
 async function searchCustomer(token, searchQuery) {
   const requestOptions = {
@@ -52,6 +64,7 @@ async function getCustomerById(id, loggedInEmployeeToken){
     }
   };
   const response = await fetch(`${api_url}/api/customer/${id}`, requestOptions);
+  console.log(response)
   return response;
 }
 
@@ -65,7 +78,8 @@ const CustomerService = {
   createCustomer,
   getAllCustomers,
   searchCustomer,
-  getCustomerById
+  getCustomerById,
+    updateCustomer
 };
 
 export  default CustomerService;

@@ -47,6 +47,7 @@ async function getVehiclesByCustomerId(req, res, next) {
          data:vehicle});
     } 
    } catch (error) {
+     
        res.status(400).json({error: "Something went wrong"})
    }
 

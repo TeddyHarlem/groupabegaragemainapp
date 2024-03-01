@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 // Import react-icons
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function AddVehicleForm() {
-  
-
-
   return (
     <section className="history-section">
       <div className="history-block">
-          <div className="content"></div>
-        </div>
+        <div className="content"></div>
+      </div>
       <div className="auto-container">
         <div className="history-block">
           <div className="years">info</div>
@@ -19,10 +17,13 @@ function AddVehicleForm() {
             <div className="text">
               <p>Email</p>
               <p>Phone Number:</p>
-              <p>Active customer</p>
+              <p>Active customer:Yes</p>
               <p>
                 Edit customer info:
-                <FaEdit />{" "}
+                <Link to="/admin/edit-customer/:customer_id">
+                  {" "}
+                  <FaEdit />{" "}
+                </Link>{" "}
               </p>
             </div>
           </div>
@@ -33,7 +34,7 @@ function AddVehicleForm() {
             <h5>
               <b>Vehicles of customerName</b>
             </h5>
-       
+
             <div className="auto-container">
               <div className="csearch"></div>
               <div className="row clearfix">
@@ -147,8 +148,6 @@ function AddVehicleForm() {
 }
 
 export default AddVehicleForm;
-
-
 
 // import React, { useState } from "react";
 
