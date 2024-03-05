@@ -93,16 +93,17 @@ async function getEmployeeById(employeeId) {
 async function updateEmployee(employee) {
   // update active employee status
   const query =
-    "UPDATE employee_info SET employee_first_name = ?, employee_last_name = ?, employee_phone WHERE employee_id = ? ";
+    "UPDATE employee_info SET employee_first_name = ?, employee_last_name = ?, employee_phone = ? WHERE employee_id = ?";
   await conn.query(query, [
     employee.employee_first_name,
     employee.employee_last_name,
     employee.employee_phone,
-    employee_info.employee_id,
+    employee.employee_id, // fixed typo from employee_info.employee_id
   ]);
 
-  return "Updated emplyee info";
+  return "Updated employee info";
 }
+
 // Export the functions for use in the controller
 module.exports = {
   checkIfEmployeeExists,
@@ -110,4 +111,5 @@ module.exports = {
   getEmployeeByEmail,
   getAllEmployees,
   getEmployeeById,
+  updateEmployee,
 };

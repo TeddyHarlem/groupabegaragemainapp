@@ -61,7 +61,8 @@ function App() {
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         {/* Add vehicle */}
-        <Route path="/add/vehicle" element={<AddVehicle />} />
+        <Route path="/admin/vehicle" element={<AddVehicle />} />
+      
 
         {/* Edit Links */}
         <Route
@@ -103,7 +104,7 @@ function App() {
           }
         />
 
-        {/* // Add the Customers Routes  */}
+        {/* Add the Customers Routes  */}
 
         <Route
           path="/admin/add-customer"

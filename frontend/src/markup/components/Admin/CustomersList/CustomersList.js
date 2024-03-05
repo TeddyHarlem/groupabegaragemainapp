@@ -99,6 +99,7 @@ const CustomersList = () => {
                   placeholder="Search for a customer using first name, last name, email address or phonenumber"
                   className="extended-placeholder-input"
                 />
+
                 <Button
                   className="theme-btn- btn-style-one extended-search-button "
                   onClick={handleSearch}
@@ -144,8 +145,7 @@ const CustomersList = () => {
                           to={`/admin/edit-customer/${customer.customer_id}`}
                         >
                           {" "}
-                          <FaEdit /> {" "} 
-                          {/* <FaTrash /> */}
+                          <FaEdit /> {/* <FaTrash /> */}
                         </Link>
                         |
                         <Link
@@ -153,7 +153,7 @@ const CustomersList = () => {
                         >
                           {" "}
                           <CgProfile />
-                         Profile{" "}
+                          Profile{" "}
                         </Link>
                       </div>
                     </td>

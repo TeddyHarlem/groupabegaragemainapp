@@ -1,5 +1,6 @@
 import React from "react";
 import AdminMenu from "../../components/Admin/AdminMenu/AdminMenu";
+import OrderListForm from "../../components/Admin/OrderListForm/OrderListForm";
 
 const Orders = () => {
   return (
@@ -10,7 +11,7 @@ const Orders = () => {
          <AdminMenu />
        </div>
        <div className="col-md-9 admin-right-side">
-         <h1>Orders List</h1>
+         < OrderListForm />
        </div>
      </div>
    </div>

@@ -27,11 +27,12 @@ function EditEmployeeProfileForm() {
         </div>
 
         <div className="history-block">
-          <div className="years">Photo</div>
+          <div className="years">Details</div>
           <div className="content">
-            <h4>Emplyee address</h4>
-            <p>Address 1..........................................</p>
-            <p>City, State ZIP....................................</p>
+            <h4>1. Employee information </h4>
+            <h4>2. Job information</h4>
+            <h4>3. Emergency contact details</h4>
+           
             <Link to="/employee_profile" className="btn btn-primary">
               {" "}
               Back to Employee Profile

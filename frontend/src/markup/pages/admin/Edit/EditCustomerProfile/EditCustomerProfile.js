@@ -1,8 +1,7 @@
 import React from "react";
 // Import the AdminMenu component
 import AdminMenu from "../../../../components/Admin/AdminMenu/AdminMenu.js";
-import EditCustomerProfileForm from "../../../../components/Admin/EditCustomerProfileForm/EditCustomerProfileForm.js";
-
+import EditCustomerProfileForm from "../../../../components/Admin/AddVehicleForm/AddVehicleForm.js";
 
 function EditCustomerProfile(props) {
   return (

@@ -49,7 +49,7 @@ async function createCustomer(customer) {
 
     // Get the auto generated customer_id
     const customer_id = rows.insertId;
-
+    //  const active_customer = 1
     // Insert customer detail into customer_info
     const query2 =
       "INSERT INTO customer_info (customer_id, customer_first_name, customer_last_name, active_customer) VALUES (?, ?, ?, ?)";
@@ -58,6 +58,7 @@ async function createCustomer(customer) {
       customer.customer_first_name,
       customer.customer_last_name,
       customer.active_customer,
+      // active_customer
     ]);
 
     // Return the created customer's id
@@ -83,7 +84,7 @@ async function getCustomerById(customerId) {
   return rows;
 }
 //Update customer 
-async function updateCustomer(customer) {
+async function updateCustomer(customer) { 
    // update active customer status
    const query1 = "UPDATE customer_identifier SET customer_phone_number = ? WHERE customer_id = ?"
    await  conn.query(query1, [customer.customer_phone_number, customer.customer_id]);

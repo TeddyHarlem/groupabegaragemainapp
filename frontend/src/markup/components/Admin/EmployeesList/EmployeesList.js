@@ -1,40 +1,41 @@
 // Import the necessary components
 import React, { useState, useEffect } from "react";
-import { Table, Button } from "react-bootstrap";
-// Import the auth hook
-import { useAuth } from "../../../../Contexts/AuthContext";
-// Import the date-fns library
-import { format } from "date-fns"; // To properly format the date on the table
-// Import the getAllEmployees function
-import employeeService from "../../../../services/employee.service";
-// Import react-icons
-import { FaEdit, FaTrash, FaPager } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
+import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { format } from "date-fns"; // To properly format the date on the table
+import EmployeeService from "../../../../services/employee.service";
+import { useAuth } from "../../../../Contexts/AuthContext";
+import { FaEdit } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 
 // Create the EmployeesList component
 const EmployeesList = () => {
-  // Create all the states we need to store emlyee's data
-  // Create the employees state to store the employees data
+  // Create all the states we need to store employee's data
   const [employees, setEmployees] = useState([]);
-  // A state to serve as a flag to show the error message
   const [apiError, setApiError] = useState(false);
-  // A state to store the error message
   const [apiErrorMessage, setApiErrorMessage] = useState(null);
-  // To get the logged in employee token
   const { employee } = useAuth();
   let token = null; // To store the token
   if (employee) {
     token = employee.employee_token;
   }
 
+  const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 5
+        }}
+    />
+);
+
   useEffect(() => {
     // Call the getAllEmployees function
-    const allEmployees = employeeService.getAllEmployees(token);
+    const allEmployees = EmployeeService.getAllEmployees(token);
     allEmployees
       .then((res) => {
         if (!res.ok) {
-          // console.log(res.status);
           setApiError(true);
           if (res.status === 401) {
             setApiErrorMessage("Please login again");
@@ -52,7 +53,7 @@ const EmployeesList = () => {
         }
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
       });
   }, []);
 
@@ -71,7 +72,8 @@ const EmployeesList = () => {
           <section className="contact-section">
             <div className="auto-container">
               <div className="contact-title">
-                <h2>Employees</h2>
+                <h2>Employees</h2> 
+                <ColoredLine color="red" />
               </div>
               <Table striped bordered hover>
                 <thead>
@@ -83,13 +85,14 @@ const EmployeesList = () => {
                     <th>Phone</th>
                     <th>Added Date</th>
                     <th>Role</th>
-                    <th>Edit/Delete</th>
+                    <th> Edit/Profile </th>
+                    
                   </tr>
                 </thead>
                 <tbody>
                   {employees.map((employee) => (
                     <tr key={employee.employee_id}>
-                      <td>{employee.active_employee ? "Yes" : "No"}</td>
+                      <td>{employee.active_employee === 1 ? "Yes" : "No"}</td>
                       <td>{employee.employee_first_name}</td>
                       <td>{employee.employee_last_name}</td>
                       <td>{employee.employee_email}</td>
@@ -105,21 +108,17 @@ const EmployeesList = () => {
                         <div className="edit-delete-icons">
                           <Link
                             to={`/admin/edit-employee/${employee.employee_id}`}
-                            
                           >
                             {" "}
-                            <FaEdit /> edit{" "}
+                            <FaEdit /> Edit{" "}
                           </Link>
                           |
                           <Link
                             to={`/admin/employee-profile/${employee.employee_id}`}
                           >
                             {" "}
-                            <id-card-clip />
-                            <CgProfile /> profile{" "}
+                            <CgProfile /> Profile{" "}
                           </Link>
-
-                          
                         </div>
                       </td>
                     </tr>
@@ -127,6 +126,7 @@ const EmployeesList = () => {
                 </tbody>
               </Table>
             </div>
+            <ColoredLine color="red" />
           </section>
         </>
       )}

@@ -4,23 +4,21 @@ import CustomerService from "../../../../services/customer.service";
 import { useAuth } from "../../../../Contexts/AuthContext";
 
 function EditCustomerForm() {
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
-
   const [customerData, setCustomerData] = useState({
     customer_first_name: "",
     customer_last_name: "",
-    customer_phone_number:""
-    });
-    const id = window.location.pathname.split("/")[3];
+    customer_phone_number: "",
+    active_customer: 1,
+  });
 
-     // Errors 
-  const [firstNameRequired, setFirstNameRequired] = useState('');
-  const [lastNameRequired, setLastNameRequired] = useState('');
-  const [phoneNumberRequired, setPhoneNumberRequired] = useState('');
+  const id = window.location.pathname.split("/")[3];
+
+  // Errors
+  const [firstNameRequired, setFirstNameRequired] = useState("");
+  const [lastNameRequired, setLastNameRequired] = useState("");
+  const [phoneNumberRequired, setPhoneNumberRequired] = useState("");
   const [success, setSuccess] = useState(false);
-  const [serverError, setServerError] = useState('');
+  const [serverError, setServerError] = useState("");
 
   // Create a variable to hold the user's token
   let loggedInEmployeeToken = "";
@@ -29,66 +27,66 @@ function EditCustomerForm() {
   if (employee && employee.employee_token) {
     loggedInEmployeeToken = employee.employee_token;
   }
- const handleChange = ((e) => {
-  setCustomerData ({...customerData, [e.target.name]:e.target.value})
-  
-      
- })
 
- const handleSubmit = async  (event) => {
-  event.preventDefault();
-  // Handle client side validations  
-  let valid = true; // Flag 
-  // First name is required 
-  if (!customerData.customer_first_name) {
-    setFirstNameRequired('First name is required');
-    valid = false;
-  } else {
-    setFirstNameRequired('');
-  } 
+  const handleChange = (e) => {
+    setCustomerData({ ...customerData, [e.target.name]: e.target.value });
+  };
 
-    
-    
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Handle client side validations
+    let valid = true; // Flag
+    // First name is required
+    if (!customerData.customer_first_name) {
+      setFirstNameRequired("First name is required");
+      valid = false;
+    } else {
+      setFirstNameRequired("");
+    }
+
     if (!customerData.customer_last_name) {
-      setLastNameRequired('last name is required');
+      setLastNameRequired("last name is required");
       valid = false;
     } else {
-      setLastNameRequired('');
+      setLastNameRequired("");
     }
 
-     
     if (!customerData.customer_phone_number) {
-      setPhoneNumberRequired('Phone number is required');
+      setPhoneNumberRequired("Phone number is required");
       valid = false;
     } else {
-      setPhoneNumberRequired('');
+      setPhoneNumberRequired("");
     }
-     // If the form is not valid, do not submit 
-     if (!valid) {
-        return;
-}
-// Send data to server
-const updateCustomer = CustomerService.updateCustomer(customerData, id, loggedInEmployeeToken);
-    updateCustomer.then((response) => response.json())
+    // If the form is not valid, do not submit
+    if (!valid) {
+      return;
+    }
+    // Send data to server
+    const updateCustomer = CustomerService.updateCustomer(
+      customerData,
+      id,
+      loggedInEmployeeToken
+    );
+    updateCustomer
+      .then((response) => response.json())
       .then((data) => {
         console.log(data);
         // If Error is returned from the API server, set the error message
         if (data.error) {
-          setServerError(data.error)
-          console.log(data.error)
+          setServerError(data.error);
+          console.log(data.error);
         } else {
-          // Handle successful response 
+          // Handle successful response
           setSuccess(true);
-          setServerError('')
-          // Redirect to the employees page after 2 seconds 
-          // For now, just redirect to the home page 
+          setServerError("");
+          // Redirect to the employees page after 2 seconds
+          // For now, just redirect to the home page
           setTimeout(() => {
-            // window.location.href = '/admin/employees';
-            window.location.href = '/admin/customers';
+            window.location.href = "/admin/customers";
           }, 2000);
         }
       })
-      // Handle Catch 
+      // Handle Catch
       .catch((error) => {
         const resMessage =
           (error.response &&
@@ -98,33 +96,33 @@ const updateCustomer = CustomerService.updateCustomer(customerData, id, loggedIn
           error.toString();
         setServerError(resMessage);
       });
-  }
-
- 
+  };
 
   const [singleCustomerData, setSingleCustomerData] = useState({});
-   console.log(singleCustomerData)
-   
-   useEffect(() => {
-  
-    // console.log(id, "check id on console");
-    const customer = CustomerService.getCustomerById(id, loggedInEmployeeToken);
-    customer.then(response => response.json()).then((data) => {
-      setSingleCustomerData(data.data);
-      setCustomerData(data.data[0])
-      console.log(data.data)
-    })
+  console.log(singleCustomerData);
 
+  useEffect(() => {
+    console.log(id, "customer id on console");
+    const customer = CustomerService.getCustomerById(id, loggedInEmployeeToken);
+    customer
+      .then((response) => response.json())
+      .then((data) => {
+        setSingleCustomerData(data.data);
+        setCustomerData(data.data[0]);
+        console.log(data.data);
+      });
   }, [id]);
 
   return (
     <section className="contact-section">
       <div className="auto-container">
         <div className="contact-title">
-          <h2>Edit : {singleCustomerData[0]?.customer_first_name} {singleCustomerData[0]?.customer_last_name}</h2>
-          
+          <h2>
+            Edit : {singleCustomerData[0]?.customer_first_name}{" "}
+            {singleCustomerData[0]?.customer_last_name}
+          </h2>
+
           <h4>Customer E-mail: {singleCustomerData[0]?.customer_email}</h4>
-          
         </div>
         <div className="row clearfix">
           <div className="form-column col-lg-7">
@@ -133,15 +131,19 @@ const updateCustomer = CustomerService.updateCustomer(customerData, id, loggedIn
                 <form onSubmit={handleSubmit}>
                   <div className="row clearfix">
                     <div className="form-group col-md-12">
-                      <input onChange={handleChange} value={customerData.customer_first_name}
+                      <input
+                        onChange={handleChange}
+                        value={customerData.customer_first_name}
                         type="text"
-                        name="customer_first_name" 
+                        name="customer_first_name"
                         placeholder="customer first name"
                       />
                     </div>
 
                     <div className="form-group col-md-12">
-                      <input onChange={handleChange} value={customerData.customer_last_name}
+                      <input
+                        onChange={handleChange}
+                        value={customerData.customer_last_name}
                         type="text"
                         name="customer_last_name"
                         placeholder="Customer last name"
@@ -150,16 +152,34 @@ const updateCustomer = CustomerService.updateCustomer(customerData, id, loggedIn
                     </div>
 
                     <div className="form-group col-md-12">
-                      <input 
+                      <input
                         type="text"
-                        name="customer_phone_number" onChange={handleChange} value={customerData.customer_phone_number}
+                        name="customer_phone_number"
+                        onChange={handleChange}
+                        value={customerData.customer_phone_number}
                         placeholder="Employee phone (555-555-5555)"
                         required
                       />
                     </div>
                     <div className="form-group col-md-12">
                       <label>
-                        <input type="checkbox" name="is_active" />{" "}
+                        <input
+                          checked={customerData.active_customer === 1}
+                          onChange={() =>
+                            customerData.active_customer === 1
+                              ? setCustomerData({
+                                  ...customerData,
+                                  active_customer: 0,
+                                })
+                              : setCustomerData({
+                                  ...customerData,
+                                  active_customer: 1,
+                                })
+                          }
+                          value={customerData.active_customer}
+                          type="checkbox"
+                          name="active_customer"
+                        />{" "}
                         <span> Is active customer </span>
                       </label>
                     </div>

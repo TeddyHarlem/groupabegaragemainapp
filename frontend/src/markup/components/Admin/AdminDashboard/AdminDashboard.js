@@ -22,10 +22,24 @@ function AdminDashboard() {
                     runway heading towards a streamlined cloud solution.
                   </div>
                 </div>
+
                 <div className="row">
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
-                      <h5>open for all</h5>
+                      <h5>open for leads</h5>
+                      <h2>All Orders</h2>
+                      <a href="#" className="read-more">
+                        list of orders +
+                      </a>
+                      <div className="icon">
+                        <span className="flaticon-gearbox"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-4 service-block-one">
+                    <div className="inner-box hvr-float-shadow">
+                      <h5>open for dmin & manager</h5>
                       <h2>New Orders</h2>
                       <a href="#" className="read-more">
                         list of orders +
@@ -35,10 +49,11 @@ function AdminDashboard() {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
-                      <h5>open for leads</h5>
-                      <h2>All orders</h2>
+                      <h5>open for all</h5>
+                      <h2>Order Status</h2>
                       <a href="#" className="read-more">
                         list of orders +
                       </a>
@@ -47,12 +62,13 @@ function AdminDashboard() {
                       </div>
                     </div>
                   </div>
-                  
-                  
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>open for admins</h5>
-                     <Link to="/admin/employees" > <h2>Employees</h2> </Link>
+                      <Link to="/admin/employees">
+                        <h2>Employees</h2>
+                      </Link>
                       <a href="/admin/employees" className="read-more">
                         List of employees +
                       </a>
@@ -61,10 +77,24 @@ function AdminDashboard() {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
-                      <h5>Open for admins</h5>
-                      <h2>Add Employee</h2>
+                      <h5>open for admins</h5>
+                      <h2>Add employee</h2>
+                      <a href="#" className="read-more">
+                        list of orders +
+                      </a>
+                      <div className="icon">
+                        <span className="flaticon-gearbox"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-4 service-block-one">
+                    <div className="inner-box hvr-float-shadow">
+                      <h5>Open for admin & manager</h5>
+                      <h2>Edit Employee</h2>
                       <a href="#" className="read-more">
                         read more +
                       </a>
@@ -73,9 +103,26 @@ function AdminDashboard() {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
-                      <h5>open for admin</h5>
+                      <h5>Open for admin & manager</h5>
+                      <Link to="/admin/customers">
+                        {" "}
+                        <h2>Customers</h2>{" "}
+                      </Link>
+                      <a href="/admin/customers" className="read-more">
+                        List of Customers +
+                      </a>
+                      <div className="icon">
+                        <span className="flaticon-spray-gun"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-4 service-block-one">
+                    <div className="inner-box hvr-float-shadow">
+                      <h5>Open for admin & manager</h5>
                       <h2>Add Customers</h2>
                       <a href="#" className="read-more">
                         read more +
@@ -85,22 +132,27 @@ function AdminDashboard() {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
-                      <h5>only admin</h5>
-                      <Link to="/admin/customers" >  <h2>Customers</h2> </Link>
-                      <a href="/admin/customers" className="read-more">
-                        List of Customers +
+                      <h5>Open for admin & manager</h5>
+                      <h2>Edit customers</h2>
+                      <a href="#" className="read-more">
+                        list of orders +
                       </a>
                       <div className="icon">
-                        <span className="flaticon-spray-gun"></span>
+                        <span className="flaticon-gearbox"></span>
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>open for all</h5>
-                     <Link to="/add/vehicle">  <h2>Add Vehicle</h2> </Link>
+                      <Link to="/admin/vehicle">
+                        {" "}
+                        <h2>Add Vehicle</h2>{" "}
+                      </Link>
                       <a href="/add/vehicle" className="read-more">
                         List of Customers +
                       </a>
@@ -109,10 +161,11 @@ function AdminDashboard() {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
                       <h5>only admin</h5>
-                      <h2>Add Customer</h2>
+                      <h2>Add Services</h2>
                       <a href="#" className="read-more">
                         List of Customers +
                       </a>
@@ -121,9 +174,10 @@ function AdminDashboard() {
                       </div>
                     </div>
                   </div>
+
                   <div className="col-lg-4 service-block-one">
                     <div className="inner-box hvr-float-shadow">
-                      <h5>only admin</h5>
+                      <h5>For all</h5>
                       <h2>Services</h2>
                       <a href="#" className="read-more">
                         List of Customers +

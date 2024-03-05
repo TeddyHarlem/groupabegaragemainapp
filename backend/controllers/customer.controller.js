@@ -80,17 +80,15 @@ async function updateCustomer(req, res, next) {
     const customer = await customerService.updateCustomer(customerData);
 
     if (!customer) {
-      return res.status(400).json({ message: "Failed to update customer" });
+      return res.status(404).json({ message: "Customer not found or failed to update" });
     } else {
-      return res.status(200).json({
-        message: "Customer info updated successfully!",
-        data: customer,
-      });
+      return res.status(200).json({ message: "Customer info updated successfully!" });
     }
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    return res.status(500).json({ message: "Internal server error: " + error.message });
   }
 }
+
 
 // Search customer
 async function searchCustomer(req, res, next) {

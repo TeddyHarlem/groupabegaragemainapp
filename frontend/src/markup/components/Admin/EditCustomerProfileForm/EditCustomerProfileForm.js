@@ -3,6 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Table, Button } from "react-bootstrap";
 import { format } from "date-fns";
+import AddVehicleForm from "../AddVehicleForm/AddVehicleForm";
 
 function EditCustomerProfileForm() {
   return (
@@ -35,30 +36,6 @@ function EditCustomerProfileForm() {
             <h5>
               <b>Vehicles of customerName</b>
             </h5>
-            <section className="contact-section">
-              <div className="auto-container">
-                {/* Table to display customers */}
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>vehicle_id</th>
-                      {/* <th>customer_id</th> */}
-                      <th>vehicle_year</th>
-                      <th>vehicle_make</th>
-                      <th>vehicle_model</th>
-                      <th>vehicle_type</th>
-                      <th>vehicle_mileage</th>
-                      <th>vehicle_tag</th>
-                      <th>vehicle_serial</th>
-                      <th>vehicle_color</th>
-                     
-                     
-                      <th>Edit/Profile</th>
-                    </tr>
-                  </thead>
-                </Table>
-              </div>
-            </section>
 
             <div className="auto-container">
               <div className="csearch"></div>
@@ -72,9 +49,11 @@ function EditCustomerProfileForm() {
                             <input
                               type="text"
                               name="Vehicle year"
-                              placeholder="Vehicle year"
+                              placeholder="No vehicle found"
                             />
                           </div>
+                          <div>{/* <AddVehicleForm /> */}</div>
+
                           {/* Additional vehicle input fields go here */}
                           <div className="form-group col-md-12">
                             <button
